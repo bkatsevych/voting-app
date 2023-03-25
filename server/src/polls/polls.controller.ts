@@ -23,9 +23,9 @@ export class PollsController {
   @Post('/rejoin')
   async rejoin() {
     const result = await this.pollsService.rejoinPoll({
-      name: 'from token',
-      pollID: 'also from token',
-      userID: 'guess where this comes form',
+      name: 'From token',
+      pollID: 'Also from token',
+      userID: 'Guess where this comes from?',
     });
 
     return result;
