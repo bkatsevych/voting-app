@@ -83,4 +83,4 @@ subscribeKey(state, 'accessToken', () => {
   }
 });
 
-export { stateWithComputed as estate, actions };
+export { stateWithComputed as state, actions };
