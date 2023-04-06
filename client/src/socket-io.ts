@@ -27,6 +27,14 @@ export const createSocketWithHandlers = ({
     console.log(
       `Connected with socket ID: ${socket.id}. UserID: ${state.me?.id} will join room ${state.poll?.id}`
     );
+
+    actions.startLoading();
+  });
+
+  socket.on('connect_error', () => {
+    console.log('failed to connect socket');
+
+    actions.stopLoading();
   });
 
   socket.on('poll_updated', (poll) => {
