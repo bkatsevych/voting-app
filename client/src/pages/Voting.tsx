@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useSnapshot } from 'valtio';
-import { actions, state } from '../state';
-import RankedCheckBox from '../components/ui/RankedCheckBox';
 import ConfirmationDialog from '../components/ui/ConfirmationDialog';
+import RankedCheckBox from '../components/ui/RankedCheckBox';
+import { state, actions } from '../state';
 
-const Voting = () => {
+const Voting: React.FC = () => {
   const currentState = useSnapshot(state);
   const [rankings, setRankings] = useState<string[]>([]);
   const [confirmCancel, setConfirmCancel] = useState(false);
@@ -34,7 +34,7 @@ const Voting = () => {
   return (
     <div className="mx-auto flex flex-col w-full justify-between items-center h-full max-w-sm">
       <div className="w-full">
-        <h1 className="text-center">Voting page</h1>
+        <h1 className="text-center">Voting Page</h1>
       </div>
       <div className="w-full">
         {currentState.poll && (
@@ -43,7 +43,7 @@ const Voting = () => {
               Select Your Top {currentState.poll?.votesPerVoter} Choices
             </div>
             <div className="text-center text-lg font-semibold mb-6 text-indigo-700">
-              {currentState.poll?.votesPerVoter - rankings.length} Votes
+              {currentState.poll.votesPerVoter - rankings.length} Votes
               remaining
             </div>
           </>
